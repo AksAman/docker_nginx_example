@@ -1,0 +1,18 @@
+version: '3'
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - mynetwork
+  website:
+    build:
+      context: ./website
+      dockerfile: Dockerfile
+    networks:
+      - mynetwork
+networks:
+  mynetwork:
